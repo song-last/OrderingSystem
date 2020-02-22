@@ -1,0 +1,23 @@
+#日志的配置
+#logging:
+#  #日志的输出模式
+#  pattern:
+#    console: "%d - %msg%n"
+#  #日志输出的路径(可改名,默认为spring.log)
+#  file:
+#      path: E:\IDEA_WorkSpace\OrderingSystem\sell
+#      name: sell.log
+#  #设置日志等级
+#  level:
+#    com.song.LoggerTest: debug
+
+#mysql驱动
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/personproject?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+
+  jpa:
+    show-sql: true
