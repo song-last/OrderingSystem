@@ -1,8 +1,13 @@
 package com.song.db;
 
+import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 /**
  * 类目
@@ -10,11 +15,13 @@ import javax.persistence.Id;
  * @Date 2020/2/22 22:41
  */
 @Entity
+@DynamicUpdate          //自动更新时间
+@Data
 public class ProductCategory {
 
-    /** 类目id   */
+    /** 类目id    */
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer categoryId;
 
     /** 类目名称  */
@@ -23,27 +30,8 @@ public class ProductCategory {
     /**  类目编号  */
     private Integer categoryType;
 
-    public Integer getCategoryId() {
-        return categoryId;
-    }
+    private Date createTime;
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
-    }
+    private Date updateTime;
 
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public Integer getCategoryType() {
-        return categoryType;
-    }
-
-    public void setCategoryType(Integer categoryType) {
-        this.categoryType = categoryType;
-    }
 }
